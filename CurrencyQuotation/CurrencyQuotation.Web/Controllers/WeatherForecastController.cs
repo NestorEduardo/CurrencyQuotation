@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CurrencyQuotation.Core.Models;
+using CurrencyQuotation.Web.Infrastructure;
+using CurrencyQuotation.Web.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace CurrencyQuotation.Web.Controllers
 {
@@ -11,6 +15,9 @@ namespace CurrencyQuotation.Web.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private readonly IOptions<Settings> appSettings;
+
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -18,22 +25,18 @@ namespace CurrencyQuotation.Web.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IOptions<Settings> appSettings)
         {
-            _logger = logger;
+            this.appSettings = appSettings;
+            ApplicationSettings.WebApiUrl = appSettings.Value.WebApiBaseUrl;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<Quotation> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var x = await ApiClientFactory.Instance.GetQuote();
+            return x;
+
         }
     }
 }
