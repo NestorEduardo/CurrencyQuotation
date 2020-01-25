@@ -15,8 +15,6 @@ namespace CurrencyQuotation.Web.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private readonly IOptions<Settings> appSettings;
-
 
         private static readonly string[] Summaries = new[]
         {
@@ -25,16 +23,16 @@ namespace CurrencyQuotation.Web.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(IOptions<Settings> appSettings)
+        public WeatherForecastController(IOptions<Config> appSettings)
         {
-            this.appSettings = appSettings;
             ApplicationSettings.WebApiUrl = appSettings.Value.WebApiBaseUrl;
+            ApplicationSettings.WebApiToken = appSettings.Value.WebApiToken;
         }
 
         [HttpGet]
-        public async Task<Quotation> Get()
+        public async Task<QuotationRootObject> Get()
         {
-            var x = await ApiClientFactory.Instance.GetQuote();
+            var x = await ApiClientFactory.Instance.GetQuote("USD", 1, ApplicationSettings.WebApiToken);
             return x;
 
         }

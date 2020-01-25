@@ -1,3 +1,4 @@
+using CurrencyQuotation.Core.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,10 @@ namespace CurrencyQuotation.Web
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.Configure<Config>(Configuration.GetSection("Config"));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
