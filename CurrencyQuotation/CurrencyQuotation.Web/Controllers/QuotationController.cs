@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CurrencyQuotation.Core.Models;
 using CurrencyQuotation.Web.Infrastructure;
 using CurrencyQuotation.Web.Utils;
@@ -23,9 +21,10 @@ namespace CurrencyQuotation.Web.Controllers
         }
 
         [HttpGet("{target:regex(^[[a-zA-Z]])}")]
-        public async Task<QuotationRootObject> Get(string target)
+        public async Task<IActionResult> Get(string target)
         {
-            return await ApiClientFactory.Instance.GetQuote(target, 1, ApplicationSettings.WebApiToken);
+            var x = await ApiServiceFactory.Instance.GetQuote(target, 1, ApplicationSettings.WebApiToken);
+            return Ok(Quotation.Map(x));
         }
     }
 }

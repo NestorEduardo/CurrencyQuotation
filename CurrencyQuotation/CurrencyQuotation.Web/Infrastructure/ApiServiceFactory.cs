@@ -5,18 +5,18 @@ using System.Threading;
 
 namespace CurrencyQuotation.Web.Infrastructure
 {
-    internal static class ApiClientFactory
+    internal static class ApiServiceFactory
     {
         private static Uri apiUri;
 
-        private static Lazy<ApiClient> restClient = new Lazy<ApiClient>(
-          () => new ApiClient(apiUri),
+        private static Lazy<ApiService> restClient = new Lazy<ApiService>(
+          () => new ApiService(apiUri),
           LazyThreadSafetyMode.ExecutionAndPublication);
-        static ApiClientFactory()
+        static ApiServiceFactory()
         {
             apiUri = new Uri(ApplicationSettings.WebApiUrl);
         }
-        public static ApiClient Instance
+        public static ApiService Instance
         {
             get
             {

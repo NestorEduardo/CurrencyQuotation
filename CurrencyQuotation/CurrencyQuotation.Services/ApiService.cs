@@ -5,14 +5,16 @@ using System.Threading.Tasks;
 using CurrencyQuotation.Core.Models;
 using System.Web;
 using System.Collections.Specialized;
+using System.Globalization;
+using CurrencyQuotation.Core.Models.Abstract;
 
 namespace CurrencyQuotation.Services
 {
-    public class ApiClient
+    public class ApiService
     {
         private readonly HttpClient httpClient;
         private Uri BaseEndpoint { get; set; }
-        public ApiClient(Uri baseEndpoint)
+        public ApiService(Uri baseEndpoint)
         {
             if (baseEndpoint == null)
             {
@@ -42,7 +44,7 @@ namespace CurrencyQuotation.Services
         }
         public async Task<QuotationRootObject> GetQuote(string target, int quantity, string webApiToken)
         {
-            Uri requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, $"{target}/json"), quantity, webApiToken);
+            Uri requestUrl = CreateRequestUri(string.Format(CultureInfo.InvariantCulture, $"{target}/json"), quantity, webApiToken);
             return await GetAsync<QuotationRootObject>(requestUrl);
         }
     }

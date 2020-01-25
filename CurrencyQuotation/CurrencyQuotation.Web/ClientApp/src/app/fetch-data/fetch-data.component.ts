@@ -1,29 +1,23 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { QuotationService } from '../commond/quotation.service';
-import { map } from 'rxjs/operators';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Quotation } from '../commond/quotation.model';
-import { debug } from 'util';
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-fetch-data',
     templateUrl: './fetch-data.component.html'
 })
-export class FetchDataComponent {
+
+export class FetchDataComponent implements OnInit {
     quotation: Quotation;
 
     constructor(private quotationService: QuotationService, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
-        //debugger;
-        //this.route.paramMap.pipe(
-        //    map(() =>
-        //        this.quotationService.get("USD"))
-        //).subscribe(quotation => this.quotation = quotation);
+        this.quotationService.get("USD").subscribe(data => {
+            this.quotation = data;
+            console.log(this.quotation);
+        });
     }
 }
-
-

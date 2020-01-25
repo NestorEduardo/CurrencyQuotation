@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Quotation } from "./quotation.model";
-import { debug } from "util";
 
 @Injectable()
 export class QuotationService{
@@ -9,7 +8,7 @@ export class QuotationService{
     }
 
     public get(target: string) {
-        debugger;
-        return this.httpClient.get<Quotation>(`Quotation/get/${target}`);
+        var x = this.httpClient.get<Quotation>(`Quotation/${target}`);
+        return x;
     }
 }
