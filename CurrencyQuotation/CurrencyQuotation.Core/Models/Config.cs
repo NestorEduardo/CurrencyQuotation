@@ -1,4 +1,6 @@
-﻿namespace CurrencyQuotation.Core.Models
+﻿using System.Collections.Generic;
+
+namespace CurrencyQuotation.Core.Models
 {
     public class Config
     {

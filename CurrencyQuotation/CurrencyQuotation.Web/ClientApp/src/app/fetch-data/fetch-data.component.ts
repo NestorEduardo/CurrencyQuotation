@@ -1,24 +1,29 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { QuotationService } from '../commond/quotation.service';
+import { map } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Quotation } from '../commond/quotation.model';
+import { debug } from 'util';
+
 
 @Component({
-  selector: 'app-fetch-data',
-  templateUrl: './fetch-data.component.html'
+    selector: 'app-fetch-data',
+    templateUrl: './fetch-data.component.html'
 })
 export class FetchDataComponent {
-  public forecasts: WeatherForecast[];
+    quotation: Quotation;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-      http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-          console.log(result);
-      this.forecasts = result;
-    }, error => console.error(error));
-  }
+    constructor(private quotationService: QuotationService, private route: ActivatedRoute) {
+    }
+
+    ngOnInit() {
+        //debugger;
+        //this.route.paramMap.pipe(
+        //    map(() =>
+        //        this.quotationService.get("USD"))
+        //).subscribe(quotation => this.quotation = quotation);
+    }
 }
 
-interface WeatherForecast {
-    currency: string;
-  price: number;
-  temperatureF: number;
-  summary: string;
-}
+

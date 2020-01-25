@@ -12,12 +12,10 @@ namespace CurrencyQuotation.Web.Infrastructure
         private static Lazy<ApiClient> restClient = new Lazy<ApiClient>(
           () => new ApiClient(apiUri),
           LazyThreadSafetyMode.ExecutionAndPublication);
-
         static ApiClientFactory()
         {
             apiUri = new Uri(ApplicationSettings.WebApiUrl);
         }
-
         public static ApiClient Instance
         {
             get
