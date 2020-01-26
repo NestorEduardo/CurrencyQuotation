@@ -5,7 +5,8 @@ var Config = /** @class */ (function () {
         this.countryCodes = [
             "DOP",
             "USD",
-            "EUR"
+            "EUR",
+            "AED"
         ];
     }
     Config.prototype.getCountryCodes = function () {

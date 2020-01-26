@@ -1,14 +1,40 @@
 <h1>Hola</h1>
 <p>Bienvenido al cotizador de Pesos Argentinos:</p>
+<p>Este proyecto implementa una Web Api RESTful que retorna las cotizaciones de monedas en base al Peso Argentino usando la api <a target='_blank' href='https://cambio.today/'>cambio.today</a></p>
+<p>Puede probar la aplicaci&oacute;n web <a href='/quotation'>aqu&iacute;</a></p>
+<h4>Tecnolog&iacute;as usadas</h4>
+
 <ul>
-  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
+  <li><strong>Backend: </strong>C#, ASP.NET MVC Core</li>
+  <li><strong>Fronend: </strong>Angular</li>
 </ul>
-<p>To help you get started, we've also set up:</p>
+<br />
+
+<h4>Ejempo de uso</h4>
+<h5>Petici&oacute;n</h5>
+<li><strong>Verbo http: </strong>GET</li>
+<li>
+  <strong>Url: </strong>https://[[hostname]]/Quotation/USD
+</li>
+<br />
+
+<h5>Respuesta</h5>
+
+<img alt='Ejemplo de llamada a la api' src='../assets/api-request-example.PNG' />
+
 <ul>
-  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
+  <li><strong>updated: </strong>Fecha de la &uacute;ltima actualizaci&oacute;n de la cotizaci&oacute;n </li>
+  <li><strong>source: </strong>Moneda base de la cotizaci&oacute;n</li>
+  <li><strong>target: </strong>Moneda a cotizar</li>
+  <li><strong>value: </strong>Cotizaci&oacute;n de la moneda objetivo en base a la moneda base</li>
+  <li><strong>target: </strong>Unidad de cotizaci&oacute;n</li>
+  <li><strong>amount: </strong>Cotizaci&oacute;n</li>
 </ul>
-<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>
+
+<br />
+
+<h4>Agregar monedas a cotizar en la aplicaci&oacute;n web</h4>
+<p>Para agregar monedas en la aplicaci&oacute;n web, dirigirse al archivo <strong>config.json </strong> ubicado en la carpeta <strong>src\assets</strong> de la aplicaci&oacute;n Angular</p>
+<p>Para ello necesitara saber el c&oacute;digo de la moneda  <a target="_blank" href='https://es.wikipedia.org/wiki/ISO_4217#C%C3%B3digos_de_divisa_ISO_4217[nota_1]%E2%80%8B'>ISO 4217</a></p>
+
+<img alt='Arhivo json de las monedas' src='../assets/currencies-file.PNG' />

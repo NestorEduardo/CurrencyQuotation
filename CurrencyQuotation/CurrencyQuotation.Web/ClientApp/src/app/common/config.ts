@@ -2,7 +2,8 @@ export class Config {
     countryCodes = [
         "DOP",
         "USD",
-        "EUR"
+        "EUR",
+        "AED"
     ];
 
     getCountryCodes() {

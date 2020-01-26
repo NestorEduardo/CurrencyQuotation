@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuotationService } from '../common/quotation.service';
 import { Quotation } from '../common/quotation.model';
-import { ActivatedRoute } from '@angular/router';
 import { Config } from '../common/config';
 
 @Component({
@@ -14,7 +13,7 @@ export class QuotationComponent implements OnInit {
     private countryCodes: string[];
     private i: number = 0;
 
-    constructor(private quotationService: QuotationService, private route: ActivatedRoute, private config: Config) {
+    constructor(private quotationService: QuotationService, private config: Config) {
     }
 
     ngOnInit() {

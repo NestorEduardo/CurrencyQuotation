@@ -6,7 +6,6 @@ using CurrencyQuotation.Core.Models;
 using System.Web;
 using System.Collections.Specialized;
 using System.Globalization;
-using CurrencyQuotation.Core.Models.Abstract;
 
 namespace CurrencyQuotation.Services
 {
@@ -26,7 +25,6 @@ namespace CurrencyQuotation.Services
         }
         private async Task<T> GetAsync<T>(Uri requestUrl)
         {
-
             var response = await httpClient.GetAsync(requestUrl, HttpCompletionOption.ResponseHeadersRead);
             response.EnsureSuccessStatusCode();
             var data = await response.Content.ReadAsStringAsync();
