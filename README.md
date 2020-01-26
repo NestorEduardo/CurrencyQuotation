@@ -2,9 +2,10 @@
 
 Bienvenido al cotizador de Pesos Argentinos:
 
-Este proyecto implementa una Web Api RESTful que retorna las cotizaciones de monedas en base al Peso Argentino usando la api [cambio.today](http://cambio.today/)
+Este proyecto implementa una Web Api RESTful que retorna las cotizaciones de monedas en base al Peso Argentino usando la api 
+<a href="http://cambio.today/" target="_blank">cambio.today</a>
 
-Puede probar la aplicación web [aquí](https://currencyquotation.azurewebsites.net/quotation)
+Puede probar la aplicación web <a href="https://currencyquotation.azurewebsites.net/quotation" target="_blank">aquí</a>
 
 ## Tecnologías usadas
 - **Backend:** C#, ASP.NET MVC Core
@@ -27,5 +28,8 @@ Puede probar la aplicación web [aquí](https://currencyquotation.azurewebsites.
 ## Agregar monedas a cotizar en la aplicación web
 Para agregar monedas en la aplicación web, dirigirse al archivo **config.json** ubicado en la carpeta **src\assets** de la aplicación Angular
 
-Para ello necesitara saber el código de la moneda [ISO 4217](https://es.wikipedia.org/wiki/ISO_4217#C%C3%B3digos_de_divisa_ISO_4217[nota_1]%E2%80%8B)
+Para ello necesitara saber el código de la moneda
+<a href="https://es.wikipedia.org/wiki/ISO_4217#C%C3%B3digos_de_divisa_ISO_4217[nota_1]%E2%80%8B" target="_blank">ISO 4217</a>
+
+
 <img alt='Ejemplo de llamada a la api' src="https://currencyquotation.azurewebsites.net/assets/currencies-file.PNG" />
