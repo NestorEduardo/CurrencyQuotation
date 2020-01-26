@@ -31,7 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\commond\quotation.model.ts" />
+    <None Remove="ClientApp\src\app\common\config.ts" />
+    <None Remove="ClientApp\src\app\common\quotation.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,7 +41,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\commond\quotation.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\common\config.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\common\quotation.model.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

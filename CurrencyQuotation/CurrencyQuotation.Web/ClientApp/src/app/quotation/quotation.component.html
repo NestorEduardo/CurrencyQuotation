@@ -1,0 +1,8 @@
+<h1 id="tableLabel">Cotizaciones peso Argentino</h1>
+
+<p *ngIf="!quotation"><em>Cargando...</em></p>
+
+<div *ngIf="quotation">
+  <br />
+  <h4>{{quotation.quantity}} <span class="bold">{{quotation.source}} </span> = {{quotation.amount}} <span class="bold"> {{quotation.target}}  </span></h4>
+</div>

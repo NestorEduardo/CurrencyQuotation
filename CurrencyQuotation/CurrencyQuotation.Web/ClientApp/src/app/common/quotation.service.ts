@@ -8,7 +8,6 @@ export class QuotationService{
     }
 
     public get(target: string) {
-        var x = this.httpClient.get<Quotation>(`Quotation/${target}`);
-        return x;
+        return this.httpClient.get<Quotation>(`Quotation/${target}`);
     }
 }
