@@ -26,7 +26,7 @@ Puede probar la aplicación web <a href="https://currencyquotation.azurewebsites
 - **amount:** Cotización
 
 ## Agregar monedas a cotizar en la aplicación web
-Para agregar monedas en la aplicación web, dirigirse al archivo **config.ts** ubicado en la carpeta **src\app\commond** de la aplicación Angular
+Para agregar monedas en la aplicación web, dirigirse al archivo **config.ts** ubicado en la carpeta **src\app\common** de la aplicación Angular
 
 Para ello necesitara saber el código de la moneda
 <a href="https://es.wikipedia.org/wiki/ISO_4217#C%C3%B3digos_de_divisa_ISO_4217[nota_1]%E2%80%8B" target="_blank">ISO 4217</a>
