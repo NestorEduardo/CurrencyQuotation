@@ -23,8 +23,7 @@ namespace CurrencyQuotation.Web.Controllers
         [HttpGet("{target:regex(^[[a-zA-Z]])}")]
         public async Task<IActionResult> Get(string target)
         {
-            var x = await ApiServiceFactory.Instance.GetQuote(target, 1, ApplicationSettings.WebApiToken);
-            return Ok(Quotation.Map(x));
+            return Ok(Quotation.Map(await ApiServiceFactory.Instance.GetQuote(target, ApplicationSettings.DefaultQuantity, ApplicationSettings.WebApiToken)));
         }
     }
 }
